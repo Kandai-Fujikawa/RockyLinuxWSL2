@@ -17,3 +17,8 @@ jobs:
       run: docker run -d --name rocky-wsl rockylinux/rockylinux:latest
     - name: Export Docker Container to rootfs
       run: docker export rocky-wsl -o rootfs.tar
+    - name: Upload rootfs
+      uses: actions/upload-artifact@v2
+      with:
+        name: rootfs
+        path: rootfs.tar
